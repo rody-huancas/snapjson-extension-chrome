@@ -3,11 +3,39 @@
   "name": "SnapJson",
   "version": "1.0.0",
   "description": "Side panel para capturar y visualizar JSON.",
+  "permissions": [
+    "storage",
+    "scripting",
+    "activeTab",
+    "sidePanel",
+    "tabs",
+    "windows"
+  ],
+  "host_permissions": ["<all_urls>"],
   "icons": {
     "128": "public/snapjson.png"
   },
   "action": {
-    "default_popup": "sidepanel/index.html",
-    "default_icon": "public/snapjson.png"
-  }
+    "default_icon": "public/snapjson.png",
+    "default_popup": "src/sidepanel/index.html"
+  },
+  "side_panel": {
+    "default_path": "src/sidepanel/index.html"
+  },
+  "background": {
+    "service_worker": "src/background/index.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content/bridge.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["src/injected/fetch-patch.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
