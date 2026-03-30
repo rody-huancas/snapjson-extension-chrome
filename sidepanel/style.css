@@ -1,0 +1,132 @@
+:root {
+  color-scheme: dark;
+  --bg: #0f1117;
+  --panel: #161b22;
+  --text: #e6edf3;
+  --muted: #9ba3af;
+  --border: #2a2f3a;
+  --accent: #4cc2ff;
+  --mono: "Fira Code", "JetBrains Mono", "Consolas", "Courier New", monospace;
+  --sans: "Space Grotesk", "Manrope", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  width: 520px;
+  min-height: 420px;
+  background: radial-gradient(circle at top, #141a24, var(--bg));
+  color: var(--text);
+  font-family: var(--sans);
+}
+
+header {
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+h1 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 0.3px;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  margin-bottom: 16px;
+  font-size: 12px;
+}
+
+#status {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.controls button {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #1b2230;
+  color: var(--text);
+  padding: 8px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.controls button:hover {
+  background: #222b3b;
+  border-color: #3a455a;
+}
+
+.controls button:active {
+  transform: translateY(1px);
+}
+
+.input {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.input label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+#json-input {
+  width: 100%;
+  min-height: 120px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #121722;
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 10px;
+  resize: vertical;
+}
+
+#json-input:focus {
+  outline: 1px solid var(--accent);
+}
+
+main {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  padding: 16px;
+  min-height: 220px;
+}
+
+#json-display {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: #c7d1db;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
