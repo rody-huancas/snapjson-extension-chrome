@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "SnapJson",
+  "version": "1.0.0",
+  "description": "Side panel para capturar y visualizar JSON.",
+  "icons": {
+    "128": "public/snapjson.png"
+  },
+  "action": {
+    "default_popup": "sidepanel/index.html",
+    "default_icon": "public/snapjson.png"
+  }
+}
