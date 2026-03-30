@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SnapJson</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="sj">
+    <header class="sj__header">
+      <div class="sj__brand">
+        <img src="../../public/snapjson.png" alt="SnapJson" class="sj__logo" />
+        <span class="sj__sr-only">SnapJson</span>
+      </div>
+      <div class="sj__actions">
+        <button id="toggle-pause-btn" type="button" class="sj__btn">
+          Pausar
+        </button>
+        <button id="toggle-history-btn" type="button" class="sj__btn">
+          Ocultar
+        </button>
+        <button id="open-exclude-btn" type="button" class="sj__btn">
+          Exclusiones
+        </button>
+        <div class="sj__status" id="status-pill">
+          <span id="status">Cargando...</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="sj__layout" id="layout">
+      <aside class="sj__sidebar">
+        <div class="sj__sidebar-header">
+          <h2 class="sj__sidebar-title">Historial</h2>
+          <button
+            id="clear-history-btn"
+            type="button"
+            class="sj__icon-btn"
+            aria-label="Borrar historial"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="14"
+              height="14"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M3 6h18" />
+              <path d="M8 6V4h8v2" />
+              <path d="M19 6l-1 14H6L5 6" />
+            </svg>
+          </button>
+        </div>
+        <div class="sj__filters">
+          <select id="filter-domain" class="sj__select"></select>
+          <select id="filter-method" class="sj__select"></select>
+        </div>
+        <div id="history-list" class="sj__history"></div>
+      </aside>
+
+      <section class="sj__workspace">
+        <div class="sj__toolbar">
+          <div class="sj__meta">
+            <span id="meta-method" class="sj__meta-badge">--</span>
+            <span id="meta-status" class="sj__meta-badge">--</span>
+            <span id="meta-duration" class="sj__meta-text">-- ms</span>
+            <span id="meta-url" class="sj__meta-url"
+              >Selecciona una captura</span
+            >
+          </div>
+          <div class="sj__toolbar-actions">
+            <button id="copy-json-btn" type="button" class="sj__btn">
+              Copiar JSON
+            </button>
+            <button id="export-btn" type="button" class="sj__btn">
+              Exportar
+            </button>
+          </div>
+        </div>
+
+        <main class="sj__viewer">
+          <pre id="json-display" class="sj__json">{}</pre>
+        </main>
+      </section>
+    </div>
+
+    <div id="exclude-modal" class="sj-modal" aria-hidden="true">
+      <div class="sj-modal__card">
+        <div class="sj-modal__header">
+          <h3>Dominios excluidos</h3>
+          <button id="close-exclude-btn" type="button" class="sj__btn">
+            Cerrar
+          </button>
+        </div>
+        <div class="sj-modal__body">
+          <label for="exclude-input">Agregar dominio</label>
+          <div class="sj-modal__row">
+            <input
+              id="exclude-input"
+              type="text"
+              class="sj-modal__input"
+              placeholder="ej: youtube.com"
+            />
+            <button id="exclude-add-btn" type="button" class="sj__btn">
+              Agregar
+            </button>
+          </div>
+          <div id="exclude-list" class="sj-modal__list"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
